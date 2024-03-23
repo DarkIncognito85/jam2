@@ -30,7 +30,7 @@
     "**/*.ts",
     "**/*.tsx", 
     ".contentlayer/generated"
-  ],
+, "src/components/custom/render.tsx"  ],
   "exclude": ["node_modules", "./scripts/build-components.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
