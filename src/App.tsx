@@ -1,23 +1,16 @@
-import reactLogo from "./assets/react.svg";
-import tsLogo from "./assets/ts-logo.svg";
-import viteLogo from "/vite.svg";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { FileSignature, Github, Heart } from "lucide-react";
 import { Terminal } from "lucide-react";
-import { useState } from "react";
 import { Input } from "@/components/ui/input";
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <div className="h-screen w-screen flex items-center justify-center flex-col gap-6 p-4 relative">
@@ -47,7 +40,6 @@ function App() {
           </CardHeader>
           <CardContent className="grid gap-4 md:w-[480px] md:min-w-[480px]">
             <div className=" flex items-center space-x-4 rounded-md border p-4">
-              <FileSignature />
               <div className="flex-1 space-y-1">
                 <p className="text-sm font-medium leading-none">Username</p>
                 <div className="text-sm text-muted-foreground">
