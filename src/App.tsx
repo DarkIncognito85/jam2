@@ -14,9 +14,10 @@ import { saveVote } from "./InteractData";
 import facebookLogo from './facebook-logo.png';
 import telegramLogo from './telegram-logo.png';
 import TwitterLogo from './twitter-logo.jpg';
+import ClientxcmsLogo from './clientxcms-logo.png';
 
 function App() {
-  const [username, setUsername] = useState('MartinDev');
+  const [username, setUsername] = useState('');
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(document.getElementById('username')?.value);
   };
@@ -44,6 +45,10 @@ function App() {
     const twitterShareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}&url=${encodeURIComponent(tweetUrl)}`;
     window.open(twitterShareUrl, "_blank");
   };
+  const shareOnClientxcsm = () => {
+    const clientxcmsShareUrl = 'https://clientxcms.com/';
+    window.open(clientxcmsShareUrl, "_blank");
+  }
 
   return (
     <div className="h-screen w-screen flex flex-col bg-gray-200">
@@ -90,7 +95,6 @@ function App() {
             </CardHeader>
             <CardContent className="grid gap-4 md:w-[480px] md:min-w-[480px]">
                 <div className="flex-1 space-y-1">
-                  <p className="text-sm font-medium leading-none">Username</p>
                   <div className="text-sm text-muted-foreground">
                     <p>
                       <div className="flex w-full max-w-sm items-center space-x-2">
@@ -104,6 +108,14 @@ function App() {
             </>
             }
           </Card>
+          <Card className="w-full">
+            <CardHeader>
+              <CardTitle>Top Skin</CardTitle>
+              <CardDescription>
+                This is the top most used skin on minecraft
+              </CardDescription>
+            </CardHeader>
+          </Card>
           <div className="mt-6 flex justify-center space-x-4">
             <Button type="button" onClick={shareOnFacebook} className="bg-transparent border-none p-0 hover:bg-transparent hover:border-none">
               <img src={facebookLogo} alt="Share on Facebook" className="h-8 w-8"/>
@@ -113,6 +125,9 @@ function App() {
             </Button>
             <Button type="button" onClick={shareOnTwitter} className="bg-transparent border-none p-0 hover:bg-transparent hover:border-none">
               <img src={TwitterLogo} alt="Share on Twitter" className="h-8 w-8"/>
+            </Button>
+            <Button type="button" onClick={shareOnClientxcsm} className="bg-transparent border-non p-0 hover:bg-transparent hover:border-non">
+              <img src={ClientxcmsLogo} alt="Share on Clientxcms" className="h-8 w-8"/>
             </Button>
           </div>
         </div>
