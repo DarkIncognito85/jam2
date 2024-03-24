@@ -54,7 +54,7 @@ const MinecraftSkin: React.FC<MinecraftSkinProps> = ({ skinUrl }) => {
     }
   };
 
-  return <div ref={viewerRef}></div>;
+  return <div style={{width: '150px;'}} ref={viewerRef}></div>;
 };
 
 export default MinecraftSkin;

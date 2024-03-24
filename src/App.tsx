@@ -8,9 +8,9 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { ArrowBigUp, ArrowBigLeft } from "lucide-react";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import MinecraftSkin from "./MinecraftSkin";
-import { saveVote } from "./InteractData";
+import { getLeaderboard, saveVote } from "./InteractData";
 import facebookLogo from './facebook-logo.png';
 import telegramLogo from './telegram-logo.png';
 import TwitterLogo from './twitter-logo.jpg';
@@ -18,6 +18,7 @@ import ClientxcmsLogo from './clientxcms-logo.png';
 
 function App() {
   const [username, setUsername] = useState('');
+  const [leaderboard, setLeaderboard] = useState([] as Array<{ username: string; votes: number; lastVoteDate: string }>);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(document.getElementById('username')?.value);
   };
@@ -49,7 +50,11 @@ function App() {
     const clientxcmsShareUrl = 'https://mynamemc.clientxcms.com/';
     window.open(clientxcmsShareUrl, "_blank");
   }
-
+  useEffect(() => {
+    getLeaderboard().then((data) => {
+      setLeaderboard(data);
+    });
+  });
   return (
     <div className="h-screen w-screen flex flex-col bg-gray-200">
       <div className="w-full bg-black py-2">
@@ -108,14 +113,53 @@ function App() {
             </>
             }
           </Card>
-          <Card className="w-full">
-            <CardHeader>
-              <CardTitle>Top Skin</CardTitle>
-              <CardDescription>
-                This is the top most used skin on minecraft
-              </CardDescription>
-            </CardHeader>
-          </Card>
+
+          </div>
+          </div>
+
+          <div>
+      {leaderboard.length == 3 &&
+
+        <div className="flex-1 flex justify-center items-center gap-4">
+            
+            <Card style={{marginTop: "60px"}}>
+              <CardHeader>
+                <CardTitle>Top Skin #2</CardTitle>
+                <CardDescription>
+                {leaderboard[1].username} with {leaderboard[1].votes} votes (last vote on {leaderboard[1].lastVoteDate})
+
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                  <MinecraftSkin skinUrl={`https://mineskin.eu/skin/${leaderboard[1].username}`}></MinecraftSkin>
+            </CardContent>
+            </Card>
+            <Card style={{marginTop: "-20px"}}>
+              <CardHeader>
+                <CardTitle>Top Skin #1</CardTitle>
+                <CardDescription>
+                  {leaderboard[0].username} with {leaderboard[0].votes} votes (last vote on {leaderboard[1].lastVoteDate})
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                  <MinecraftSkin skinUrl={`https://mineskin.eu/skin/${leaderboard[0].username}`}></MinecraftSkin>
+            </CardContent>
+            </Card>
+            <Card style={{marginTop: "30px"}}>
+              <CardHeader>
+                <CardTitle>Top Skin #3</CardTitle>
+                <CardDescription>
+                {leaderboard[2].username} with {leaderboard[2].votes} votes (last vote on {leaderboard[2].lastVoteDate})
+
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                  <MinecraftSkin skinUrl={`https://mineskin.eu/skin/${leaderboard[2].username}`}></MinecraftSkin>
+            </CardContent>
+            </Card>
+            </div>
+      })
+
           <div className="mt-6 flex justify-center space-x-4">
             <Button type="button" onClick={shareOnFacebook} className="bg-transparent border-none p-0 hover:bg-transparent hover:border-none">
               <img src={facebookLogo} alt="Share on Facebook" className="h-8 w-8"/>
@@ -130,7 +174,6 @@ function App() {
               <img src={ClientxcmsLogo} alt="Share on Clientxcms" className="h-8 w-8"/>
             </Button>
           </div>
-        </div>
       </div>
     </div>
   );
