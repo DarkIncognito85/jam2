@@ -31,22 +31,22 @@ function App() {
     event.target.disabled = true;
   };
   const shareOnFacebook = () => {
-    const quoteText = "Check out this awesome content on Example.com!";
-    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=https://example.com&quote=${encodeURIComponent(quoteText)}`;
+    const quoteText = "Check out my skin!";
+    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=https://mynamemc.clientxcms.com&quote=${encodeURIComponent(quoteText)}`;
     window.open(facebookShareUrl, "_blank");
   };
   const shareOnTelegram = () => {
-    const telegramShareUrl = "https://t.me/share/url?url=https://example.com&text=Check%20out%20this%20awesome%20content!";
+    const telegramShareUrl = `https://t.me/share/url?url=https://mynamemc.clientxcms.com&text=${encodeURIComponent('Check out my skin!')}!`;
     window.open(telegramShareUrl, "_blank");
   };
   const shareOnTwitter = () => {
-    const tweetText = "Check out this awesome content!";
-    const tweetUrl = "https://my_memMC.com";
+    const tweetText = "Check out my skin!";
+    const tweetUrl = "https://mynamemc.clientxcms.com";
     const twitterShareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}&url=${encodeURIComponent(tweetUrl)}`;
     window.open(twitterShareUrl, "_blank");
   };
   const shareOnClientxcsm = () => {
-    const clientxcmsShareUrl = 'https://clientxcms.com/';
+    const clientxcmsShareUrl = 'https://mynamemc.clientxcms.com/';
     window.open(clientxcmsShareUrl, "_blank");
   }
 

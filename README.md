@@ -2,6 +2,8 @@
 ## My_NameMC
 A ReactJS project to remake in a jam's week end, [namemc](https://namemc.com) website with a voting system for skins and allow show skin in 3D with [Three.js](https://threejs.org/).
 
+Skin are provided by [mineskin](https://mineskin.eu) opensource api.
+
 ## Usage
 
 ```bash
