@@ -1,29 +1,28 @@
-# Shadcn UI React Template
-A ReactJS template for building apps with Radix UI and Tailwind CSS.
+# Jam2
+## My_NameMC
+A ReactJS project to remake in a jam's week end, [namemc](https://namemc.com) website with a voting system for skins and allow show skin in 3D with [Three.js](https://threejs.org/).
 
 ## Usage
 
 ```bash
-  git clone https://github.com/angelitolm/shadcn-ui-react-template.git
+  git clone https://github.com/DarkIncognito85/jam2.git
 ```
 ```bash
-  cd shadcn-ui-react-template
+  cd jam2
 ```
 ```bash
-  yarn install
+  npm install
 ```
 ```bash
-  yarn run dev
+  npm run dev
 ```
 
-## Features
+## Language
 
+We have used multi open source projects : 
 - ReactJS App Directory
 - Radix UI Primitives
-- Tailwind CSS
-- Icons from [Lucide](https://lucide.dev)
-- Tailwind CSS class sorting, merging and linting.
-
-## License
-
-Licensed under the [MIT license](https://github.com/shadcn/ui/blob/main/LICENSE.md).
+- Tailwind CSS with shadcn
+- Typescript
+- Three.js
+- Lucide Icon
