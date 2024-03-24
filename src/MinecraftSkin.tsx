@@ -37,7 +37,7 @@ const MinecraftSkin: React.FC<MinecraftSkinProps> = ({ skinUrl }) => {
   const startAnimation = () => {
     let rotation = 0;
     const animate = () => {
-      rotation += 0.1;
+      rotation += 0.05;
       if (skinViewer.current) {
         skinViewer.current.playerObject.rotation.y = rotation;
         skinViewer.current.render();
